@@ -1,7 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MyCoffeeApp.Services;
 using MyCoffeeApp.Views;
 
 namespace MyCoffeeApp
@@ -13,7 +12,6 @@ namespace MyCoffeeApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
