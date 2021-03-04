@@ -1,13 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundColor="LightBlue"
+             xmlns:vm="clr-namespace:MyCoffeeApp.ViewModels"
+             BackgroundColor="White"
+             x:DataType="vm:CoffeeEquipmentViewModel"
              x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage">
+    <ContentPage.BindingContext>
+        <vm:CoffeeEquipmentViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label HorizontalOptions="CenterAndExpand"
-                   Text="Welcome to Xamarin Forms!"
-                   VerticalOptions="CenterAndExpand"/>
-        </StackLayout>
+        <Grid RowDefinitions="*,Auto,Auto,*">
+            <Label
+                Grid.Row="1"
+                    HorizontalOptions="Center"
+                    Text="{Binding CountDisplay}"
+                   FontSize="Large" />
+
+            <Button 
+                    Command="{Binding IncreaseCount}"
+                    Grid.Row="2" Text="Click Me" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
