@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:MyCoffeeApp.ViewModels"
+             xmlns:model="clr-namespace:MyCoffeeApp.Models"
              BackgroundColor="White"
              x:DataType="vm:CoffeeEquipmentViewModel"
              x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage">
@@ -9,17 +10,48 @@
         <vm:CoffeeEquipmentViewModel/>
     </ContentPage.BindingContext>
 
-    <ContentPage.Content>
-        <Grid RowDefinitions="*,Auto,Auto,*">
-            <Label
-                Grid.Row="1"
-                    HorizontalOptions="Center"
-                    Text="{Binding CountDisplay}"
-                   FontSize="Large" />
+    <ListView BackgroundColor="Transparent"
+              ItemsSource="{Binding Coffee}"
+              HasUnevenRows="True"
+              SeparatorVisibility="None">
+    
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="model:Coffee">
+                <ViewCell>
+                    <Grid Padding="10">
+                        <Frame CornerRadius="20"
+                               HasShadow="True">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Image}"
+                                       WidthRequest="66"/>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label VerticalOptions="Center"
+                                       FontSize="Large"
+                                        Text="{Binding Name}" />
+                                    <Label VerticalOptions="Center"
+                                       FontSize="Large"
+                                        Text="{Binding Roaster}" />
+                            </StackLayout> 
+                            </StackLayout>  
+                        </Frame>   
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.Header>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Header"
+                       TextColor="Olive"
+                       BackgroundColor="Red" />
+            </StackLayout>
+        </ListView.Header>
+        <ListView.Footer>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Footer"
+                       TextColor="Gray"
+                       BackgroundColor="Blue" />
+            </StackLayout>
+        </ListView.Footer>
+    </ListView>
 
-            <Button 
-                    Command="{Binding IncreaseCount}"
-                    Grid.Row="2" Text="Click Me" />
-        </Grid>
-    </ContentPage.Content>
 </ContentPage>
