@@ -18,6 +18,10 @@
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Favorite" />
+                        <MenuItem Text="Delete" IsDestructive="True"/>
+                    </ViewCell.ContextActions>
                     <Grid Padding="10">
                         <Frame CornerRadius="20"
                                HasShadow="True">
@@ -40,16 +44,14 @@
         </ListView.ItemTemplate>
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Header"
-                       TextColor="Olive"
-                       BackgroundColor="Red" />
+                <Label Text="Coffees of the World"
+                       HorizontalOptions="Center" />
             </StackLayout>
         </ListView.Header>
         <ListView.Footer>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Footer"
-                       TextColor="Gray"
-                       BackgroundColor="Blue" />
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+                <Button Text="Load More" />
             </StackLayout>
         </ListView.Footer>
     </ListView>
