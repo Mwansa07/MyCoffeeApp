@@ -5,6 +5,7 @@ using System.Windows.Input;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
 using MyCoffeeApp.Models;
+using Xamarin.Forms;
 
 namespace MyCoffeeApp.ViewModels
 {
@@ -35,6 +36,24 @@ namespace MyCoffeeApp.ViewModels
             CoffeeGroups.Add(new Grouping<string, Coffee>("Yes Plz", Coffee.Take(2)));
 
             RefreshCommand = new AsyncCommand(Refresh);
+        }
+
+        Coffee previouslySelected;
+        Coffee selectedCoffee;
+        public Coffee SelectedCoffee
+        {
+            get => selectedCoffee;
+            set
+            {
+                if (value != null)
+                {
+                    Application.Current.MainPage.DisplayAlert("Selected", value.Name, "OK");
+                    previouslySelected = value;
+                    value = null;
+                }
+                selectedCoffee = value;
+                OnPropertyChanged();
+            }
         }
 
         async Task Refresh()

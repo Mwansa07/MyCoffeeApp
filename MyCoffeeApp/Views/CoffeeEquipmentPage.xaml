@@ -11,8 +11,7 @@
     </ContentPage.BindingContext>
 
     <ListView
-        ItemSelected="ListView_ItemSelected"
-        ItemTapped="ListView_ItemTapped"
+        SelectedItem="{Binding SelectedCoffee}"
         CachingStrategy="RecycleElement"
         BackgroundColor="Transparent"
         ItemsSource="{Binding CoffeeGroups}"
