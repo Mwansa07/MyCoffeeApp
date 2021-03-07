@@ -5,13 +5,14 @@
              xmlns:model="clr-namespace:MyCoffeeApp.Models"
              BackgroundColor="White"
              x:DataType="vm:CoffeeEquipmentViewModel"
-             x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage">
+             x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage"
+             x:Name="CoffeePage">
     <ContentPage.BindingContext>
         <vm:CoffeeEquipmentViewModel/>
     </ContentPage.BindingContext>
 
     <ListView
-        SelectedItem="{Binding SelectedCoffee}"
+        SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
         CachingStrategy="RecycleElement"
         BackgroundColor="Transparent"
         ItemsSource="{Binding CoffeeGroups}"
@@ -23,12 +24,17 @@
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         RefreshCommand="{Binding RefreshCommand}"
         RefreshControlColor="Purple">
-    
+
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
                     <ViewCell.ContextActions>
-                        <MenuItem Text="Favorite" Clicked="MenuItem_Clicked" />
+                        <MenuItem Text="Favorite"
+                                  Command="{Binding
+                            Source={x:Reference CoffeePage},
+                            Path=BindingContext.FavoriteCommand}"
+                                  CommandParameter="{Binding .}"
+                                  />
                         <MenuItem Text="Delete" IsDestructive="True"/>
                     </ViewCell.ContextActions>
                     <Grid Padding="10">
@@ -44,9 +50,16 @@
                                     <Label VerticalOptions="Center"
                                        FontSize="Large"
                                         Text="{Binding Roaster}" />
-                            </StackLayout> 
-                            </StackLayout>  
-                        </Frame>   
+                                </StackLayout>
+                                <Button Text="Favorite"
+                                        Command="{Binding
+                                    Source={RelativeSource
+                                    AncestorType={x:Type vm:CoffeeEquipmentViewModel}},
+                                    Path=FavoriteCommand}"
+                                        CommandParameter="{Binding .}"
+                                        />
+                            </StackLayout>
+                        </Frame>
                     </Grid>
                 </ViewCell>
             </DataTemplate>
