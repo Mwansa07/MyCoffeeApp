@@ -10,16 +10,26 @@
         <vm:CoffeeEquipmentViewModel/>
     </ContentPage.BindingContext>
 
-    <ListView BackgroundColor="Transparent"
-              ItemsSource="{Binding Coffee}"
-              HasUnevenRows="True"
-              SeparatorVisibility="None">
+    <ListView
+        ItemSelected="ListView_ItemSelected"
+        ItemTapped="ListView_ItemTapped"
+        CachingStrategy="RecycleElement"
+        BackgroundColor="Transparent"
+        ItemsSource="{Binding CoffeeGroups}"
+        IsGroupingEnabled="True"
+        GroupDisplayBinding="{Binding Key}"
+        HasUnevenRows="True"
+        SeparatorVisibility="None"
+        IsPullToRefreshEnabled="True"
+        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+        RefreshCommand="{Binding RefreshCommand}"
+        RefreshControlColor="Purple">
     
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
                     <ViewCell.ContextActions>
-                        <MenuItem Text="Favorite" />
+                        <MenuItem Text="Favorite" Clicked="MenuItem_Clicked" />
                         <MenuItem Text="Delete" IsDestructive="True"/>
                     </ViewCell.ContextActions>
                     <Grid Padding="10">
