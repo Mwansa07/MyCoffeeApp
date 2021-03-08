@@ -21,12 +21,15 @@
             BackgroundColor="Transparent"
             IsGrouped="True"
             ItemSizingStrategy="MeasureAllItems"
-            ItemsLayout="VerticalList"
             ItemsSource="{Binding CoffeeGroups}"
             SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
             RemainingItemsThreshold="1"
             RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
             SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2" />
+            </CollectionView.ItemsLayout>
             <CollectionView.EmptyView>
                 <StackLayout Padding="12">
                     <Label HorizontalOptions="Center" Text="No coffee" />

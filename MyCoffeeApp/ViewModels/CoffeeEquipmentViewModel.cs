@@ -82,7 +82,7 @@ namespace MyCoffeeApp.ViewModels
 
         private void DelayLoadMore()
         {
-            if (Coffee.Count <= 10)
+            if (Coffee.Count < 10)
                 return;
 
             LoadMore();
