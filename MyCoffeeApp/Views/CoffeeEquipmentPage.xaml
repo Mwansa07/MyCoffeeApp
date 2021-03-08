@@ -51,13 +51,6 @@
                                        FontSize="Large"
                                         Text="{Binding Roaster}" />
                                 </StackLayout>
-                                <Button Text="Favorite"
-                                        Command="{Binding
-                                    Source={RelativeSource
-                                    AncestorType={x:Type vm:CoffeeEquipmentViewModel}},
-                                    Path=FavoriteCommand}"
-                                        CommandParameter="{Binding .}"
-                                        />
                             </StackLayout>
                         </Frame>
                     </Grid>
@@ -73,7 +66,8 @@
         <ListView.Footer>
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center">
-                <Button Text="Load More" />
+                <Button Text="Load More" Command="{Binding LoadMoreCommand}" />
+                <Button Command="{Binding ClearCommand}" Text="Clear" />
             </StackLayout>
         </ListView.Footer>
     </ListView>
