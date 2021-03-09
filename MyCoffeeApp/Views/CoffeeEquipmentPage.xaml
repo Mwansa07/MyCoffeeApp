@@ -6,10 +6,17 @@
              BackgroundColor="White"
              x:DataType="vm:CoffeeEquipmentViewModel"
              x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Name="CoffeePage">
     <ContentPage.BindingContext>
         <vm:CoffeeEquipmentViewModel/>
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ListView
         SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
@@ -24,7 +31,12 @@
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         RefreshCommand="{Binding RefreshCommand}"
         RefreshControlColor="Purple">
-
+        <ListView.Behaviors>
+            <xct:EventToCommandBehavior
+                EventName="ItemSelected"
+                Command="{Binding SelectedCommand}"
+                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+        </ListView.Behaviors>
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
