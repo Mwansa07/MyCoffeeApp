@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using MyCoffeeApp.Models;
@@ -40,11 +42,16 @@ namespace MyCoffeeApp.Services
         public static async Task RemoveCoffee(int id)
         {
             await Init();
+
+            await db.DeleteAsync<Coffee>(id);
         }
 
-        public static async Task GetCoffee()
+        public static async Task<IEnumerable<Coffee>> GetCoffee()
         {
             await Init();
+
+            var coffee = await db.Table<Coffee>().ToListAsync();
+            return coffee;
         }
     }
 }
