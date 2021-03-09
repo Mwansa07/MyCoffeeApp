@@ -26,6 +26,15 @@ namespace MyCoffeeApp.Services
         public static async Task AddCoffee(string name, string roaster)
         {
             await Init();
+            var image = "https://www.yesplz.coffee/app/uploads/2020/11/emptybag-min.png";
+            var coffee = new Coffee
+            {
+                Name = name,
+                Roaster = roaster,
+                Image = image
+            };
+
+            var id = await db.InsertAsync(coffee);
         }
 
         public static async Task RemoveCoffee(int id)
