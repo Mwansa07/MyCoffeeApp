@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:MyCoffeeApp.ViewModels"
-             xmlns:model="clr-namespace:MyCoffeeApp.Models"
              BackgroundColor="White"
              x:DataType="vm:CoffeeEquipmentViewModel"
              x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:model1="clr-namespace:MyCoffeeApp.Models;assembly=MyCoffeeApp.Shared"
              x:Name="CoffeePage">
     <ContentPage.BindingContext>
         <vm:CoffeeEquipmentViewModel/>
@@ -38,7 +38,7 @@
                 EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
         </ListView.Behaviors>
         <ListView.ItemTemplate>
-            <DataTemplate x:DataType="model:Coffee">
+            <DataTemplate x:DataType="model1:Coffee">
                 <ViewCell>
                     <ViewCell.ContextActions>
                         <MenuItem Text="Favorite"

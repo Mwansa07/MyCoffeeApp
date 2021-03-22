@@ -2,10 +2,9 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:model="clr-namespace:MyCoffeeApp.Models"
-    xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:model1="clr-namespace:MyCoffeeApp.Models;assembly=MyCoffeeApp.Shared"
     x:Name="MyCoffeePage"
     x:DataType="viewmodels:MyCoffeeViewModel"
     BackgroundColor="White"
@@ -36,7 +35,7 @@
         SelectionMode="None"
         SeparatorVisibility="None">
         <ListView.ItemTemplate>
-            <DataTemplate x:DataType="model:Coffee">
+            <DataTemplate x:DataType="model1:Coffee">
                 <ViewCell>
                     <ViewCell.ContextActions>
                         <MenuItem

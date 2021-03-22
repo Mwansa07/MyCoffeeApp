@@ -6,6 +6,8 @@ using MyCoffeeApp.Models;
 
 namespace MyCoffee.WebAPI.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CoffeeController : ControllerBase
     {
         public static List<Coffee> Coffee { get; } = new List<Coffee>();

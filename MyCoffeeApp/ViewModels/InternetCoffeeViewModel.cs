@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
 using MyCoffeeApp.Models;
+using MyCoffeeApp.Services;
 
 namespace MyCoffeeApp.ViewModels
 {

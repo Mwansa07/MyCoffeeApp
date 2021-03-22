@@ -45,4 +45,8 @@
         <ShellContent Route="MyStoredCoffeePage" ContentTemplate="{DataTemplate local:MyStoredCoffeePage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Internet Coffee">
+        <ShellContent ContentTemplate="{DataTemplate local:InternetCoffeePage}" Route="InternetCoffeePage" />
+    </FlyoutItem>
+
 </Shell>

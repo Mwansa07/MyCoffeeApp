@@ -50,7 +50,7 @@ namespace MyCoffee.WebAPI
                 app.UseHttpsRedirection();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

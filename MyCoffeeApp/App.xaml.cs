@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MyCoffeeApp.Views;
+using MonkeyCache.FileStore;
+using Xamarin.Essentials;
 
 namespace MyCoffeeApp
 {
@@ -11,6 +13,8 @@ namespace MyCoffeeApp
         public App()
         {
             InitializeComponent();
+
+            Barrel.ApplicationId = AppInfo.PackageName;
 
             MainPage = new AppShell();
         }
