@@ -20,6 +20,8 @@
     <Folder Include="Views\" />
     <Folder Include="Views\InternetCoffee\" />
     <Folder Include="Views\MyCoffee\" />
+    <Folder Include="ViewModels\InternetCoffee\" />
+    <Folder Include="ViewModels\MyCoffee\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyCoffeeApp.Shared\MyCoffeeApp.Shared.csproj" />
