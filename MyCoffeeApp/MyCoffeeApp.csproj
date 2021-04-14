@@ -9,15 +9,17 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.3" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
     <Folder Include="Views\" />
+    <Folder Include="Views\InternetCoffee\" />
+    <Folder Include="Views\MyCoffee\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyCoffeeApp.Shared\MyCoffeeApp.Shared.csproj" />

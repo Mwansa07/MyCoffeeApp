@@ -70,8 +70,7 @@ namespace MyCoffeeApp.Services
             };
 
             var json = JsonConvert.SerializeObject(coffee);
-            var content =
-                new StringContent(json, Encoding.UTF8, "application/json");
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await client.PostAsync("api/Coffee", content);
 
