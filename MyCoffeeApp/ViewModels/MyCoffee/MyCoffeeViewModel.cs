@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Command = MvvmHelpers.Commands.Command;
+using MyCoffeeApp.Views.MyCoffee;
 
 namespace MyCoffeeApp.ViewModels
 {
@@ -36,10 +37,13 @@ namespace MyCoffeeApp.ViewModels
 
         async Task Add()
         {
-            var name = await App.Current.MainPage.DisplayPromptAsync("Name", "Name of coffee");
-            var roaster = await App.Current.MainPage.DisplayPromptAsync("Roaster", "Roaster of coffee");
-            await CoffeeService.AddCoffee(name, roaster);
-            await Refresh();
+            //var name = await App.Current.MainPage.DisplayPromptAsync("Name", "Name of coffee");
+            //var roaster = await App.Current.MainPage.DisplayPromptAsync("Roaster", "Roaster of coffee");
+            //await CoffeeService.AddCoffee(name, roaster);
+            //await Refresh();
+
+            var route = $"{nameof(AddMyCoffeePage)}";
+            await Shell.Current.GoToAsync(route);
         }
 
         async Task Refresh()
