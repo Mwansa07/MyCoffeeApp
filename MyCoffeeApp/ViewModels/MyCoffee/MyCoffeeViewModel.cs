@@ -17,6 +17,7 @@ namespace MyCoffeeApp.ViewModels
         public AsyncCommand RefreshCommand { get; }
         public AsyncCommand AddCommand { get; }
         public AsyncCommand<Coffee> RemoveCommand { get; }
+        public AsyncCommand<Coffee> SelectedCommand { get; }
 
         public MyCoffeeViewModel()
         {
@@ -27,6 +28,7 @@ namespace MyCoffeeApp.ViewModels
             RefreshCommand = new AsyncCommand(Refresh);
             AddCommand = new AsyncCommand(Add);
             RemoveCommand = new AsyncCommand<Coffee>(Remove);
+            SelectedCommand = new AsyncCommand<Coffee>(Selected);
         }
 
         async Task Remove(Coffee coffee)
@@ -43,6 +45,17 @@ namespace MyCoffeeApp.ViewModels
             //await Refresh();
 
             var route = $"{nameof(AddMyCoffeePage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        async Task Selected(Coffee coffee)
+        {
+            if (coffee == null)
+            {
+                return;
+            }
+
+            var route = $"{nameof(MyCoffeeDetailsPage)}?CoffeeId={coffee.Id}";
             await Shell.Current.GoToAsync(route);
         }
 
